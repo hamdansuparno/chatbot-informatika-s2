@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Office Translator</title>
+<style>
+  :root {
+    --bg: #eef2f6; --card: #ffffff; --ink: #14213d; --muted: #5b6b82;
+    --line: #d3dbe6; --accent: #3a4fd7; --accent-ink: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 16px/1.6 "Segoe UI", "Noto Sans", "Noto Sans SC", "PingFang SC",
+          "Microsoft YaHei", system-ui, sans-serif;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 32px 20px 56px; }
+  header { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; }
+  h1 { font-size: 1.7rem; margin: 0; letter-spacing: -0.01em; }
+  .sub { color: var(--muted); margin: 6px 0 0; max-width: 60ch; }
+  .lang { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--card); }
+  .lang button {
+    border: 0; background: none; padding: 8px 14px; font: inherit; color: var(--muted); cursor: pointer;
+  }
+  .lang button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+  .lang button:focus-visible, select:focus-visible, textarea:focus-visible, .go:focus-visible {
+    outline: 3px solid var(--accent); outline-offset: 2px;
+  }
+  main { margin-top: 28px; display: grid; gap: 20px; }
+  section { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px; }
+  h2 { font-size: 1.05rem; margin: 0 0 12px; }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 12px; }
+  select, textarea {
+    font: inherit; color: var(--ink); border: 1px solid var(--line); border-radius: 8px; background: #fff;
+  }
+  select { padding: 8px 10px; }
+  textarea { width: 100%; min-height: 120px; padding: 10px 12px; resize: vertical; }
+  .go {
+    border: 0; border-radius: 8px; background: var(--accent); color: var(--accent-ink);
+    padding: 10px 20px; font: inherit; font-weight: 600; cursor: pointer;
+  }
+  .go:disabled { opacity: .6; cursor: wait; }
+  #out { white-space: pre-wrap; min-height: 56px; margin: 12px 0 0; padding: 10px 12px; background: var(--bg); border-radius: 8px; }
+  #status { color: var(--muted); font-size: .9rem; margin: 8px 0 0; }
+  table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  code { font-family: Consolas, "Courier New", monospace; font-size: .88rem; background: var(--bg); padding: 2px 6px; border-radius: 4px; }
+  .table-scroll { overflow-x: auto; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1 data-i="title"></h1>
+      <p class="sub" data-i="sub"></p>
+    </div>
+    <div class="lang" role="group" aria-label="Language / Bahasa / 语言">
+      <button data-lang="id" aria-pressed="true">Indonesia</button>
+      <button data-lang="en" aria-pressed="false">English</button>
+      <button data-lang="zh" aria-pressed="false">中文</button>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2 data-i="tr_h"></h2>
+      <div class="row">
+        <label><span data-i="from"></span>
+          <select id="src">
+            <option value="id">Indonesia</option>
+            <option value="en">English</option>
+            <option value="zh-CN">中文</option>
+          </select>
+        </label>
+        <label><span data-i="to"></span>
+          <select id="dst">
+            <option value="id">Indonesia</option>
+            <option value="en" selected>English</option>
+            <option value="zh-CN">中文</option>
+          </select>
+        </label>
+      </div>
+      <textarea id="inp" data-ph="ph"></textarea>
+      <div class="row" style="margin-top:12px">
+        <button class="go" id="go" data-i="btn"></button>
+      </div>
+      <div id="out" aria-live="polite"></div>
+      <p id="status"></p>
+    </section>
+
+    <section>
+      <h2 data-i="cmd_h"></h2>
+      <div class="table-scroll">
+        <table>
+          <tr><th data-i="c_what"></th><th data-i="c_cmd"></th></tr>
+          <tr><td data-i="c_read"></td><td><code>python office_tool.py read file.xlsx</code></td></tr>
+          <tr><td data-i="c_write"></td><td><code>python office_tool.py write hasil.docx --text "Halo"</code></td></tr>
+          <tr><td data-i="c_tr"></td><td><code>python office_tool.py translate in.pptx out.pptx --to zh</code></td></tr>
+        </table>
+      </div>
+      <p data-i="c_note" class="sub"></p>
+    </section>
+  </main>
+</div>
+
+<script>
+const T = {
+  id: {
+    title: "Penerjemah File Office",
+    sub: "Terjemahkan teks Indonesia, Inggris, dan Mandarin. File Excel, Word, PDF, dan PowerPoint diproses lewat skrip Python.",
+    tr_h: "Terjemahkan teks", from: "Dari", to: "Ke", btn: "Terjemahkan",
+    ph: "Ketik atau tempel teks di sini…",
+    cmd_h: "Perintah skrip Python", c_what: "Tugas", c_cmd: "Perintah",
+    c_read: "Baca file", c_write: "Tulis file", c_tr: "Terjemahkan file",
+    c_note: "Format yang didukung: .xlsx, .docx, .pdf, .pptx. Bahasa: id, en, zh.",
+    working: "Menerjemahkan…", empty: "Isi teks terlebih dahulu.", err: "Gagal menerjemahkan. Periksa koneksi internet lalu coba lagi."
+  },
+  en: {
+    title: "Office File Translator",
+    sub: "Translate text between Indonesian, English and Chinese. Excel, Word, PDF and PowerPoint files are handled by the Python script.",
+    tr_h: "Translate text", from: "From", to: "To", btn: "Translate",
+    ph: "Type or paste text here…",
+    cmd_h: "Python script commands", c_what: "Task", c_cmd: "Command",
+    c_read: "Read a file", c_write: "Write a file", c_tr: "Translate a file",
+    c_note: "Supported formats: .xlsx, .docx, .pdf, .pptx. Languages: id, en, zh.",
+    working: "Translating…", empty: "Enter some text first.", err: "Translation failed. Check your internet connection and try again."
+  },
+  zh: {
+    title: "办公文件翻译器",
+    sub: "在印尼语、英语和中文之间翻译文本。Excel、Word、PDF 和 PowerPoint 文件由 Python 脚本处理。",
+    tr_h: "翻译文本", from: "源语言", to: "目标语言", btn: "翻译",
+    ph: "在此输入或粘贴文本…",
+    cmd_h: "Python 脚本命令", c_what: "任务", c_cmd: "命令",
+    c_read: "读取文件", c_write: "写入文件", c_tr: "翻译文件",
+    c_note: "支持格式：.xlsx、.docx、.pdf、.pptx。语言：id、en、zh。",
+    working: "正在翻译…", empty: "请先输入文本。", err: "翻译失败。请检查网络连接后重试。"
+  }
+};
+let cur = "id";
+
+function setLang(l) {
+  cur = l;
+  document.documentElement.lang = l === "zh" ? "zh-CN" : l;
+  document.querySelectorAll("[data-i]").forEach(e => e.textContent = T[l][e.dataset.i]);
+  document.querySelectorAll("[data-ph]").forEach(e => e.placeholder = T[l][e.dataset.ph]);
+  document.querySelectorAll(".lang button").forEach(b =>
+    b.setAttribute("aria-pressed", b.dataset.lang === l));
+}
+document.querySelectorAll(".lang button").forEach(b =>
+  b.addEventListener("click", () => setLang(b.dataset.lang)));
+
+document.getElementById("go").addEventListener("click", async () => {
+  const text = document.getElementById("inp").value.trim();
+  const out = document.getElementById("out"), st = document.getElementById("status");
+  const btn = document.getElementById("go");
+  if (!text) { st.textContent = T[cur].empty; return; }
+  const pair = document.getElementById("src").value + "|" + document.getElementById("dst").value;
+  btn.disabled = true; st.textContent = T[cur].working;
+  try {
+    // MyMemory API gratis, batas ±500 karakter per permintaan
+    const r = await fetch("https://api.mymemory.translated.net/get?q=" +
+      encodeURIComponent(text.slice(0, 500)) + "&langpair=" + encodeURIComponent(pair));
+    const j = await r.json();
+    out.textContent = j.responseData.translatedText;
+    st.textContent = "";
+  } catch (e) {
+    st.textContent = T[cur].err;
+  }
+  btn.disabled = false;
+});
+
+setLang("id");
+</script>
+</body>
+</html>

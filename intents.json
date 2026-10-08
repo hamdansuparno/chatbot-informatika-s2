@@ -1,0 +1,414 @@
+{
+  "intents": [
+    {
+      "tag": "salam",
+      "patterns": [
+        "halo",
+        "hai",
+        "halo bot",
+        "assalamualaikum",
+        "selamat pagi",
+        "selamat siang",
+        "selamat sore",
+        "selamat malam",
+        "pagi",
+        "siang",
+        "malam",
+        "hei",
+        "tes",
+        "ping"
+      ],
+      "responses": [
+        "Halo! Ada yang bisa saya bantu hari ini?",
+        "Hai! Senang bertemu dengan Anda. Apa yang ingin Anda tanyakan?",
+        "Wa'alaikumsalam / Halo! Silakan ajukan pertanyaan atau topik yang ingin dibahas.",
+        "Halo! Selamat datang di asisten pintar Machine Learning. Ada yang perlu saya bantu?"
+      ]
+    },
+    {
+      "tag": "identitas",
+      "patterns": [
+        "siapa kamu",
+        "kamu siapa",
+        "siapakah namamu",
+        "apa nama kamu",
+        "siapa yang menciptakan kamu",
+        "kamu manusia atau bot",
+        "apa itu chatbot ini",
+        "ceritakan tentang dirimu",
+        "perkenalkan dirimu"
+      ],
+      "responses": [
+        "Saya adalah Bot Pintar ML, asisten virtual berbasis Machine Learning (Natural Language Processing & Intent Classification) yang dibangun menggunakan Python dan Scikit-Learn.",
+        "Nama saya Bot Pintar ML. Saya dirancang untuk mengenali maksud (intent) pertanyaan Anda dan memberikan jawaban yang relevan secara otomatis!",
+        "Saya adalah asisten virtual berbasis algoritma Machine Learning Scikit-Learn yang siap menjawab pertanyaan seputar data mining dan machine learning."
+      ]
+    },
+    {
+      "tag": "cara_kerja",
+      "patterns": [
+        "bagaimana cara kerjamu",
+        "bagaimana kamu bisa menjawab",
+        "apa algoritma yang kamu gunakan",
+        "kamu pakai teknologi apa",
+        "jelaskan cara kerja chatbot ini",
+        "apakah kamu pakai machine learning",
+        "bagaimana proses nlp chatbot ini",
+        "apa itu confidence score"
+      ],
+      "responses": [
+        "Saya bekerja melalui 4 tahapan NLP: 1. Text Preprocessing (pembersihan teks & case folding), 2. Ekstraksi Fitur (TF-IDF unigram & bigram), 3. Klasifikasi Intent (Logistic Regression), dan 4. Pengecekan Confidence Score untuk menentukan jawaban paling akurat atau respons fallback.",
+        "Chatbot ini menggunakan pipeline Machine Learning Scikit-Learn: ekstraksi bobot TF-IDF dipadukan dengan algoritma klasifikasi probabilistik Logistic Regression."
+      ]
+    },
+    {
+      "tag": "bantuan",
+      "patterns": [
+        "bisa bantu apa saja",
+        "apa saja fitur kamu",
+        "menu apa yang tersedia",
+        "tolong bantu saya",
+        "saya butuh bantuan",
+        "apa yang bisa kamu lakukan",
+        "fitur chatbot",
+        "panduan penggunaan"
+      ],
+      "responses": [
+        "Saya bisa membantu Anda mengenai:\n1. Konsep Data Mining & Metodologi CRISP-DM\n2. Konsep Machine Learning (Supervised, Unsupervised, Reinforcement)\n3. Algoritma Klasifikasi & Regresi (Naive Bayes, Logistic Regression, Decision Tree)\n4. Evaluasi Model (Confusion Matrix, Akurasi, Presisi, Recall, F1-Score)\n5. Preprocessing Data & Penanganan Overfitting\n6. Jam operasional dan kontak bantuan.",
+        "Tentu! Anda bisa menanyakan materi data science, cara kerja algoritma, evaluasi model, atau konsultasi seputar machine learning. Silakan ketik pertanyaan Anda!"
+      ]
+    },
+    {
+      "tag": "data_mining",
+      "patterns": [
+        "apa itu data mining",
+        "jelaskan data mining",
+        "apa arti data mining",
+        "definisi data mining",
+        "data mining adalah",
+        "tujuan data mining",
+        "mengapa data mining penting",
+        "apa manfaat data mining",
+        "tahapan data mining",
+        "tahapan crisp dm"
+      ],
+      "responses": [
+        "Data Mining adalah proses penambangan atau ekstraksi pola tersembunyi, korelasi, dan wawasan berharga dari kumpulan data berukuran besar menggunakan teknik statistika, matematika, dan kecerdasan buatan.",
+        "Data Mining bertujuan mengubah data mentah menjadi wawasan berharga (actionable insight) melalui 6 tahapan CRISP-DM: Business Understanding, Data Understanding, Data Preparation, Modeling, Evaluation, dan Deployment."
+      ]
+    },
+    {
+      "tag": "machine_learning",
+      "patterns": [
+        "apa itu machine learning",
+        "jelaskan machine learning",
+        "definisi machine learning",
+        "apa beda ai dan machine learning",
+        "macam macam machine learning",
+        "pembelajaran mesin",
+        "jenis jenis machine learning",
+        "apa itu supervised learning",
+        "apa itu unsupervised learning"
+      ],
+      "responses": [
+        "Machine Learning (Pembelajaran Mesin) adalah cabang AI yang memungkinkan komputer belajar secara mandiri dari data historis tanpa harus diprogram secara eksplisit langkah demi langkah.",
+        "Ada 3 paradigma utama dalam Machine Learning:\n1. Supervised Learning (Data berlabel, contoh: Klasifikasi & Regresi)\n2. Unsupervised Learning (Data tanpa label, contoh: K-Means Clustering)\n3. Reinforcement Learning (Belajar berbasis sistem reward dan penalty)."
+      ]
+    },
+    {
+      "tag": "algoritma_klasifikasi",
+      "patterns": [
+        "apa saja algoritma klasifikasi",
+        "contoh algoritma klasifikasi",
+        "apa itu decision tree",
+        "apa itu random forest",
+        "apa itu svm",
+        "algoritma klasifikasi teks",
+        "bagaimana klasifikasi teks bekerja"
+      ],
+      "responses": [
+        "Beberapa algoritma klasifikasi populer di Machine Learning antara lain: Naive Bayes, Logistic Regression, Decision Tree, Random Forest, K-Nearest Neighbors (KNN), dan Support Vector Machine (SVM).",
+        "Dalam klasifikasi teks, kata-kata diubah menjadi vektor angka (TF-IDF), kemudian algoritma klasifikasi menentukan probabilitas tertinggi untuk setiap kelas target."
+      ]
+    },
+    {
+      "tag": "naive_bayes",
+      "patterns": [
+        "apa itu naive bayes",
+        "jelaskan algoritma naive bayes",
+        "bagaimana cara kerja naive bayes",
+        "kelebihan naive bayes",
+        "mengapa disebut naive"
+      ],
+      "responses": [
+        "Naive Bayes adalah algoritma klasifikasi berbasis Teorema Bayes yang mengasumsikan setiap fitur/kata bersifat independen satu sama lain (naif). Algoritma ini sangat cepat, efisien, dan sangat handal untuk klasifikasi teks dan spam filtering.",
+        "Kelebihan Naive Bayes adalah proses komputasi yang sangat cepat, membutuhkan data latih yang relatif sedikit, dan performa tinggi pada klasifikasi dokumen teks."
+      ]
+    },
+    {
+      "tag": "regresi_linear",
+      "patterns": [
+        "apa itu regresi linear",
+        "jelaskan regresi linear",
+        "perbedaan regresi sederhana dan berganda",
+        "rumus regresi linear",
+        "apa itu regresi berganda",
+        "kapan regresi digunakan"
+      ],
+      "responses": [
+        "Regresi Linear adalah metode statistika & Machine Learning untuk memodelkan hubungan linear antara variabel bebas (X) dengan variabel terikat kontinu (Y). Rumus dasarnya adalah Y = a + bX.",
+        "Perbedaannya: Regresi Linear Sederhana menggunakan 1 variabel bebas (X), sedangkan Regresi Linear Berganda menggunakan 2 atau lebih variabel bebas (X1, X2, ... Xn) untuk memprediksi nilai target Y."
+      ]
+    },
+    {
+      "tag": "evaluasi_model",
+      "patterns": [
+        "bagaimana cara evaluasi model",
+        "apa itu confusion matrix",
+        "apa beda akurasi presisi dan recall",
+        "jelaskan akurasi",
+        "jelaskan presisi",
+        "jelaskan recall",
+        "apa itu f1 score"
+      ],
+      "responses": [
+        "Evaluasi model klasifikasi menggunakan Confusion Matrix dengan 4 metrik utama:\n1. Akurasi: Persentase total tebakan benar.\n2. Presisi: Ketepatan prediksi positif.\n3. Recall: Kemampuan model mendeteksi seluruh data positif.\n4. F1-Score: Rata-rata harmonik antara presisi dan recall.",
+        "Confusion Matrix adalah tabel kontingensi berukuran 2x2 (atau NxN) yang membandingkan nilai aktual dengan hasil prediksi model (True Positive, False Positive, True Negative, False Negative)."
+      ]
+    },
+    {
+      "tag": "data_preprocessing",
+      "patterns": [
+        "apa itu data preprocessing",
+        "tahapan preprocessing",
+        "mengapa preprocessing data penting",
+        "apa itu data cleaning",
+        "cara menangani missing value"
+      ],
+      "responses": [
+        "Data Preprocessing adalah proses pembersihan dan transformasi data mentah sebelum dimasukkan ke model Machine Learning (contoh: pembersihan missing values, encoding data kategorik, normalisasi data, dan case-folding teks).",
+        "Preprocessing sangat penting karena data dunia nyata sering mengandung derau (noise), duplikasi, dan nilai kosong. Kualitas data yang bersih menentukan keberhasilan akurasi model (konsep 'Garbage In, Garbage Out')."
+      ]
+    },
+    {
+      "tag": "overfitting",
+      "patterns": [
+        "apa itu overfitting",
+        "bagaimana cara mengatasi overfitting",
+        "apa beda overfitting dan underfitting",
+        "tanda model overfitting"
+      ],
+      "responses": [
+        "Overfitting terjadi ketika model terlalu menghafal data latih beserta noise-nya, sehingga akurasi di data latih sangat tinggi tetapi gagal/turun drastis ketika memprediksi data uji baru.",
+        "Cara mengatasi overfitting: 1. Menambah data latih, 2. Melakukan regularisasi (L1/L2), 3. Melakukan teknik Cross-Validation (k-fold), 4. Menyederhanakan kompleksitas model (misal pruning pada Decision Tree)."
+      ]
+    },
+    {
+      "tag": "pembagian_data",
+      "patterns": [
+        "mengapa data harus dibagi",
+        "apa itu train test split",
+        "berapa proporsi pembagian data",
+        "data latih dan data uji",
+        "apa itu cross validation"
+      ],
+      "responses": [
+        "Data dibagi menjadi Data Latih (Train) dan Data Uji (Test) - umumnya proporsi 80:20 atau 70:30 - untuk menguji kemampuan generalisasi model terhadap data baru yang belum pernah dilihat sebelumnya.",
+        "Train-Test Split dan Cross-Validation digunakan untuk memastikan model tidak sekadar menghafal (overfit) melainkan benar-benar mampu mengenali pola umum."
+      ]
+    },
+    {
+      "tag": "jam_operasional",
+      "patterns": [
+        "jam operasional",
+        "jam buka layanan",
+        "kapan bisa dihubungi",
+        "jadwal layanan",
+        "hari kerja",
+        "kapan buka",
+        "apakah buka 24 jam"
+      ],
+      "responses": [
+        "Layanan asisten AI ini beroperasi secara digital 24 jam sehari, 7 hari seminggu (24/7). Untuk layanan konsultasi manusia tersedia Senin-Jumat pukul 08.00 - 17.00 WIB.",
+        "Sistem chatbot kami aktif 24 jam tanpa henti untuk menjawab pertanyaan Anda kapan saja."
+      ]
+    },
+    {
+      "tag": "perbandingan_saham_naive_bayes",
+      "patterns": [
+        "perbandingan naive bayes dan prediksi saham",
+        "bandingkan naive bayes dan saham",
+        "bisa menampilkan data excel untuk perbandingan naive bayes dan prediksi saham",
+        "tampilkan data excel perbandingan saham",
+        "performa naive bayes saham",
+        "hasil evaluasi saham",
+        "akurasi naive bayes untuk saham",
+        "data excel prediksi saham"
+      ],
+      "responses": [
+        "Tentu! Analisis perbandingan model pada data saham historis (2.456 data) menunjukkan:\n1. Gaussian Naive Bayes: Akurasi 46.75%, Presisi 46.87%, Recall 93.13%, F1-Score 62.36%\n2. Logistic Regression: Akurasi 52.24%, Recall 0.43%\n3. Random Forest: Akurasi 53.05%, Recall 3.43%\n\nGaussian Naive Bayes unggul telak pada Recall (93.13%) dan F1-Score (62.36%) karena sangat sensitif menangkap potensi sinyal kenaikan harga. Seluruh hasil perbandingan tersimpan di file Excel: 'Perbandingan_Naive_Bayes_Saham.xlsx'.",
+        "Bisa! Anda dapat melihat tabel perbandingan performa Naive Bayes vs model lain langsung di Web UI atau mengunduh file Excel 'Perbandingan_Naive_Bayes_Saham.xlsx' yang telah dilengkapi Ringkasan Performa, Confusion Matrix, dan Data Prediksi Uji."
+      ]
+    },
+    {
+      "tag": "upload_data",
+      "patterns": [
+        "bisa upload data",
+        "bagaimana cara upload excel",
+        "upload data csv",
+        "unggah dataset",
+        "fitur upload data",
+        "bisa analisis data excel saya"
+      ],
+      "responses": [
+        "Tentu saja bisa! Pada antarmuka Web Chat (http://localhost:5000), terdapat tombol '📁 Upload Excel/CSV' di samping kotak input pesan. Anda bisa mengunggah file .xlsx atau .csv untuk langsung melihat preview tabel data, ringkasan baris/kolom, serta menjalankan evaluasi Machine Learning secara otomatis!",
+        "Fitur upload data tersedia di Web Chat. Klik tombol '📁 Upload Excel/CSV', pilih file dari komputer Anda, dan sistem akan langsung membaca serta menganalisis perbandingan performa model pada data tersebut."
+      ]
+    },
+    {
+      "tag": "kontak",
+      "patterns": [
+        "nomor telepon",
+        "hubungi customer service",
+        "kontak admin",
+        "email dukungan",
+        "alamat kantor",
+        "cara menghubungi manusia",
+        "kontak pengembang"
+      ],
+      "responses": [
+        "Anda dapat menghubungi kami melalui Email: support@example.com, WhatsApp/Telepon: +62 812-3456-7890, atau kunjungi kantor kami pada hari kerja.",
+        "Silakan hubungi tim kami melalui surel di support@example.com untuk pertanyaan lebih lanjut atau bantuan teknis langsung."
+      ]
+    },
+    {
+      "tag": "terima_kasih",
+      "patterns": [
+        "terima kasih",
+        "makasih",
+        "thanks",
+        "thank you",
+        "makasih banyak",
+        "terima kasih infonya",
+        "sangat membantu",
+        "terima kasih bot",
+        "oke makasih"
+      ],
+      "responses": [
+        "Sama-sama! Senang bisa membantu Anda.",
+        "Terima kasih kembali! Jangan ragu untuk bertanya lagi jika ada hal lain.",
+        "Sama-sama! Semoga sukses dan hari Anda menyenangkan!",
+        "Dengan senang hati! Ada hal lain yang ingin Anda ketahui?"
+      ]
+    },
+    {
+      "tag": "perpisahan",
+      "patterns": [
+        "dadah",
+        "sampai jumpa",
+        "selamat tinggal",
+        "bye",
+        "goodbye",
+        "keluar",
+        "exit",
+        "quit",
+        "sudah dulu ya"
+      ],
+      "responses": [
+        "Sampai jumpa lagi! Semoga harimu menyenangkan.",
+        "Selamat tinggal! Silakan datang kembali kapan saja jika membutuhkan bantuan.",
+        "Dadah! Terima kasih telah berkonsultasi dengan chatbot Machine Learning ini."
+      ]
+    },
+    {
+      "tag": "kondisi_kabar",
+      "patterns": [
+        "apa kabar",
+        "bagaimana kabarmu",
+        "kamu sehat",
+        "gimana kabarnya",
+        "kabar baik"
+      ],
+      "responses": [
+        "Saya adalah program komputer, jadi saya selalu prima dan siap membantu Anda 100%! Bagaimana dengan kabar Anda?",
+        "Kabar saya sangat baik! Selalu siap memproses pertanyaan dan data dari Anda. Bagaimana hari Anda?"
+      ]
+    },
+    {
+      "tag": "lelucon",
+      "patterns": [
+        "ceritakan lelucon",
+        "cerita lucu",
+        "bikin saya tertawa",
+        "joke",
+        "bercanda dong"
+      ],
+      "responses": [
+        "Kenapa programmer suka kopi? Karena bagi mereka, kopi adalah input yang diubah menjadi kode baris dan bug yang tak terduga!",
+        "Mengapa komputer sangat pintar? Karena dia selalu mendengarkan motherboard-nya!",
+        "Ada dua jenis manusia di dunia ini: mereka yang mengerti biner, dan mereka yang tidak!"
+      ]
+    },
+    {
+      "tag": "teori_buku_data_mining",
+      "patterns": [
+        "teori data mining dari buku",
+        "definisi data mining menurut para ahli",
+        "data mining menurut han dan kamber",
+        "buku data mining",
+        "landasan teori data mining",
+        "teori crisp dm dari jurnal"
+      ],
+      "responses": [
+        "Menurut Han, Kamber, & Pei (2012) dalam buku 'Data Mining: Concepts and Techniques (3rd Ed)', Data Mining adalah proses mengekstraksi pola menarik dan pengetahuan berharga dari data masif sebagai bagian inti dari proses Knowledge Discovery in Databases (KDD).\n\nSementara Witten, Frank, & Hall (2011) mendefinisikannya sebagai ekstraksi informasi implisit, belum diketahui sebelumnya, dan berguna bagi pengambilan keputusan.",
+        "Landasan metodologi standar industri data mining merujuk pada model CRISP-DM oleh Shearer (2000) yang terdiri dari 6 tahapan: Business Understanding, Data Understanding, Data Preparation, Modeling, Evaluation, dan Deployment."
+      ]
+    },
+    {
+      "tag": "teori_buku_machine_learning",
+      "patterns": [
+        "teori machine learning menurut tom mitchell",
+        "definisi machine learning menurut buku",
+        "landasan teori machine learning",
+        "buku machine learning",
+        "teori supervised learning james et al",
+        "definisi pembelajaran mesin menurut ahli"
+      ],
+      "responses": [
+        "Menurut Tom M. Mitchell (1997) dalam buku klasiknya 'Machine Learning': 'A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E.'\n\nDalam konteks prediksi saham: T = memprediksi arah harga, E = data pasar historis, P = akurasi dan F1-Score.",
+        "Menurut James, Witten, Hastie, & Tibshirani (2013) dalam buku 'An Introduction to Statistical Learning (ISLR)', Machine Learning terbagi menjadi Supervised Learning (data berlabel untuk klasifikasi & regresi) dan Unsupervised Learning (menemukan pola laten seperti clustering tanpa label)."
+      ]
+    },
+    {
+      "tag": "teori_jurnal_naive_bayes_saham",
+      "patterns": [
+        "teori naive bayes menurut jurnal",
+        "teori naive bayes dari buku",
+        "jurnal prediksi saham naive bayes",
+        "referensi jurnal saham dan naive bayes",
+        "penelitian patel et al tentang saham",
+        "daftar pustaka naive bayes dan saham"
+      ],
+      "responses": [
+        "Menurut jurnal seminal Rish (2001) 'An Empirical Study of the Naive Bayes Classifier' dan Domingos & Pazzani (1997), Naive Bayes mengasumsikan independensi fitur kondisional P(X|C) = prod(P(x_i|C)). Walaupun asumsi ini naif, model ini terbukti optimal mempertahankan ranking kelas biner.\n\nDalam prediksi saham, jurnal Patel et al. (2015, Expert Systems with Applications) dan Kumar & Thenmozhi (2006) membuktikan Naive Bayes sangat efektif menangkap tren volatilitas dan memiliki sensitivitas (Recall) tertinggi (pada dataset TLKM mencapai Recall 93.13%). Rincian lengkap ada di file 'TEORI_BUKU_DAN_JURNAL.md'.",
+        "Referensi jurnal utama prediksi saham & Naive Bayes:\n1. Patel et al. (2015) - Expert Systems with Applications\n2. Rish (2001) - Empirical Methods in AI\n3. Kumar & Thenmozhi (2006) - IIT Madras Research\n4. Fama (1970) - Efficient Capital Markets (Journal of Finance).\nSemua teori ini telah kami rangkum di dokumen 'TEORI_BUKU_DAN_JURNAL.md'."
+      ]
+    },
+    {
+      "tag": "teori_linear_programming_pomqm",
+      "patterns": [
+        "teori linear programming dari dosen",
+        "apa itu linear programming pom qm",
+        "cara menyelesaikan linear programming pom qm",
+        "contoh soal linear programming max 3x + 3y",
+        "bagaimana cara kerja pom qm for windows",
+        "fungsi tujuan dan fungsi kendala linear programming",
+        "pom qm linear programming"
+      ],
+      "responses": [
+        "Berdasarkan materi perkuliahan POM-QM for Windows (Hal. 136), Linear Programming adalah metode optimasi matematis untuk mengalokasikan sumber daya terbatas. Komponen utamanya adalah: 1. Variabel keputusan (x, y), 2. Fungsi tujuan Max/Min Z = c1*x1 + c2*x2 (koefisien c_j), 3. Fungsi kendala a_ij * x_j <= b_i (RHS), dan 4. Batasan non-negatif x, y >= 0.",
+        "Untuk contoh soal dosen:\nMaximize Z = 3x + 3y\nKendala:\n1. 3x + 4y <= 14 (labor hours)\n2. 6x + 4y <= 15 (pounds of material)\nx, y >= 0\n\nSolusi optimalnya adalah x* = 0.333 (1/3), y* = 3.25 (13/4) dengan nilai maksimum Z* = 10.75. Pada software POM-QM for Windows, Anda dapat menekan tombol STEP untuk melihat iterasi metode simpleks atau tombol SOLVE untuk hasil akhir."
+      ]
+    }
+  ]
+}
